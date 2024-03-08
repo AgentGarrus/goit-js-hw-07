@@ -29,14 +29,5 @@ const images = [
 ];
 
 const galleryList = document.querySelector('.gallery');
-
-images.forEach(image => {
-  const listItem = document.createElement('li');
-  listItem.classList.add('gallery-item');
-  const img = document.createElement('img');
-  img.src = image.url;
-  img.alt = image.alt;
-  img.classList.add('gallery-item');
-  listItem.appendChild(img);
-  galleryList.appendChild(listItem);
-});
+const galleryHTML = images.map(image => `<li class="gallery-item"><img src="${image.url}" alt="${image.alt}"></li>`).join('');
+galleryList.innerHTML = galleryHTML;
